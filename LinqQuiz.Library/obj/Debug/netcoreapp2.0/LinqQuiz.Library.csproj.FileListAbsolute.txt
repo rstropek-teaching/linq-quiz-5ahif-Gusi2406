@@ -1,0 +1,9 @@
+C:\Users\Philipp Gusenleitner\Source\Repos\linq-quiz-5ahif-Gusi2406\LinqQuiz.Library\bin\Debug\netcoreapp2.0\LinqQuiz.Library.deps.json
+C:\Users\Philipp Gusenleitner\Source\Repos\linq-quiz-5ahif-Gusi2406\LinqQuiz.Library\bin\Debug\netcoreapp2.0\LinqQuiz.Library.dll
+C:\Users\Philipp Gusenleitner\Source\Repos\linq-quiz-5ahif-Gusi2406\LinqQuiz.Library\bin\Debug\netcoreapp2.0\LinqQuiz.Library.pdb
+C:\Users\Philipp Gusenleitner\Source\Repos\linq-quiz-5ahif-Gusi2406\LinqQuiz.Library\obj\Debug\netcoreapp2.0\LinqQuiz.Library.csprojResolveAssemblyReference.cache
+C:\Users\Philipp Gusenleitner\Source\Repos\linq-quiz-5ahif-Gusi2406\LinqQuiz.Library\obj\Debug\netcoreapp2.0\LinqQuiz.Library.csproj.CoreCompileInputs.cache
+C:\Users\Philipp Gusenleitner\Source\Repos\linq-quiz-5ahif-Gusi2406\LinqQuiz.Library\obj\Debug\netcoreapp2.0\LinqQuiz.Library.AssemblyInfoInputs.cache
+C:\Users\Philipp Gusenleitner\Source\Repos\linq-quiz-5ahif-Gusi2406\LinqQuiz.Library\obj\Debug\netcoreapp2.0\LinqQuiz.Library.AssemblyInfo.cs
+C:\Users\Philipp Gusenleitner\Source\Repos\linq-quiz-5ahif-Gusi2406\LinqQuiz.Library\obj\Debug\netcoreapp2.0\LinqQuiz.Library.dll
+C:\Users\Philipp Gusenleitner\Source\Repos\linq-quiz-5ahif-Gusi2406\LinqQuiz.Library\obj\Debug\netcoreapp2.0\LinqQuiz.Library.pdb

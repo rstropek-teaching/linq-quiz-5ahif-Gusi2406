@@ -16,7 +16,10 @@ namespace LinqQuiz.Library
         /// </exception>
         public static int[] GetEvenNumbers(int exclusiveUpperLimit)
         {
-            throw new NotImplementedException();
+            //Enumberable.Range gibt zwischen den beiden Paramter alle int Werte in Fo rm einer Liste zurück
+            //.Where ist die Abfrage, ob es sich um eine gerade nummer handelt
+            //.Array man macht ein Array aus der IEnumberable
+            return Enumerable.Range(1, exclusiveUpperLimit - 1).Where(i => i % 2 == 0).ToArray();
         }
 
         /// <summary>
@@ -33,7 +36,17 @@ namespace LinqQuiz.Library
         /// </remarks>
         public static int[] GetSquares(int exclusiveUpperLimit)
         {
-            throw new NotImplementedException();
+            //Array.Empty<int>() es wird ein leeres Array zurückgeben werden
+            //Select(i => checked(i*i)): Integer mit 32 Bit kann die Zahl 2^31 speichern, wenn diese Zahl übertroffen wird beginnt der Integer von ganz unten zu zählen (0)
+            //Falls dies die Berchnung mit der checked Methode ausgeführt wird, dann beginnt der Integer nicht wieder von 0 zu zählen, sondern es wird eine OverflowException geworfen
+            //OrderByDescending(i => i): Absteigend sortieren; Alle Linq Funktionen benötigen eine Lamba Expression, um sie mit den jeweiligen Werten aufzurufen; i => i dass das Selbe Element der momentanen Stelle zurückgibt
+            if (exclusiveUpperLimit < 1)
+            {
+                return Array.Empty<int>();
+            }
+            int[] sol = Enumerable.Range(1, exclusiveUpperLimit - 1).Where(i => i % 7 == 0).Select(i => checked(i*i)).OrderByDescending(i => i).ToArray();
+            
+            return sol;
         }
 
         /// <summary>
@@ -52,7 +65,25 @@ namespace LinqQuiz.Library
         /// </remarks>
         public static FamilySummary[] GetFamilyStatistic(IReadOnlyCollection<IFamily> families)
         {
-            throw new NotImplementedException();
+            if (families == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            List<FamilySummary> sol = new List<FamilySummary>();
+            foreach (var family in families)
+            {
+                sol.Add(new FamilySummary
+                {
+                    //Keine Familienmitglieder = 0; Famileienmitglieder = Average berechnen
+                    //<Bedingung> ? falls war : falls falsch
+                    AverageAge =  family.Persons.Count == 0 ? 0 : family.Persons.Average(p => p.Age),
+                    FamilyID = family.ID,
+                    NumberOfFamilyMembers = family.Persons.Count
+                });
+            }
+
+            return sol.ToArray();
         }
 
         /// <summary>
@@ -70,7 +101,20 @@ namespace LinqQuiz.Library
         /// </remarks>
         public static (char letter, int numberOfOccurrences)[] GetLetterStatistic(string text)
         {
-            throw new NotImplementedException();
+            char[] textLetters = text.ToUpper().ToCharArray();
+            List<int> letters = Enumerable.Range('A', 'Z').ToList(); //integers sind = chars
+            List<(char letter, int numberOfOccurrences)> sol = new List<(char letter, int numberOfOccurrences)>();
+
+            foreach (var letter in letters)
+            {
+                var count = textLetters.Count(l => l == letter);
+                if (count > 0)
+                {
+                    sol.Add(((char)letter, count));
+                }
+            }
+
+            return sol.ToArray(); //Ein eigenes Objekt mit char und int
         }
     }
 }
