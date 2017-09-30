@@ -40,6 +40,9 @@ namespace LinqQuiz.Library
             //Select(i => checked(i*i)): Integer mit 32 Bit kann die Zahl 2^31 speichern, wenn diese Zahl übertroffen wird beginnt der Integer von ganz unten zu zählen (0)
             //Falls dies die Berchnung mit der checked Methode ausgeführt wird, dann beginnt der Integer nicht wieder von 0 zu zählen, sondern es wird eine OverflowException geworfen
             //OrderByDescending(i => i): Absteigend sortieren; Alle Linq Funktionen benötigen eine Lamba Expression, um sie mit den jeweiligen Werten aufzurufen; i => i dass das Selbe Element der momentanen Stelle zurückgibt
+            
+            // Tip: You could add this check directly in the return statement:
+            // return exclusiveUpperLimit < 1 ? Array.Empty... : Enumerable.Range...
             if (exclusiveUpperLimit < 1)
             {
                 return Array.Empty<int>();
@@ -70,6 +73,8 @@ namespace LinqQuiz.Library
                 throw new ArgumentNullException();
             }
 
+            // In such cases, use `var` on the left side of the assignment. With this, you do not need to
+            // write the type twice.
             List<FamilySummary> sol = new List<FamilySummary>();
             foreach (var family in families)
             {
@@ -83,6 +88,8 @@ namespace LinqQuiz.Library
                 });
             }
 
+            // For `sol`, you could use an Array instead of a list. With that, you would not need the
+            // call to `ToArray` -> more efficient
             return sol.ToArray();
         }
 
@@ -101,6 +108,7 @@ namespace LinqQuiz.Library
         /// </remarks>
         public static (char letter, int numberOfOccurrences)[] GetLetterStatistic(string text)
         {
+            // Same as above: Prefer `var`
             char[] textLetters = text.ToUpper().ToCharArray();
             List<int> letters = Enumerable.Range('A', 'Z').ToList(); //integers sind = chars
             List<(char letter, int numberOfOccurrences)> sol = new List<(char letter, int numberOfOccurrences)>();
